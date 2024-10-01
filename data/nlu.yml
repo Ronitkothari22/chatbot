@@ -1,0 +1,167 @@
+version: "3.1"
+
+nlu:
+
+- intent: ask_how_are_you
+  examples: |
+    - How are you?
+    - How are you doing?
+    - How's it going?
+    - How do you do?
+    - How are things?
+    - Are you doing okay?
+    - How's everything?
+    - How's your day going?
+    - How are you feeling?
+    - What's up?
+
+- intent: ask_sports_skills
+  examples: |
+    - How good is Ronit at sports?
+    - What sports does Ronit play?
+    - Is Ronit athletic?
+    - Tell me about Ronit's sports abilities
+    - What sports achievements does Ronit have?
+    - Is Ronit good at any particular sport?
+    - Does Ronit play chess?
+    - What's Ronit's chess skill level?
+
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey
+    - good morning
+    - good afternoon
+    - good evening
+
+- intent: thank
+  examples: |
+    - thank you
+    - thanks
+    - appreciate it
+    - thank you so much
+    - thanks a lot
+
+- intent: ask_github
+  examples: |
+    - What's your GitHub profile?
+    - Can you share your GitHub link?
+    - Where can I find your code repositories?
+    - What's Ronit's GitHub username?
+    - How can I see Ronit's projects on GitHub?
+
+
+- intent: ask_skills
+  examples: |
+    - What are your skills?
+    - Can you tell me about your technical skills?
+    - What programming languages do you know?
+    - What is your expertise in technology?
+    - Which frameworks are you proficient in?
+    - Tell me about your skills.
+    - What tools do you use?
+    - What languages are you comfortable with?
+    - How many programming languages do you know?
+    - What is your tech stack?
+    - Which coding languages are you good at?
+    - Tell me about Ronit's skills.
+    - What Ronit is proficient in?
+    - Can you tell me about Ronit's expertise?
+
+- intent: ask_education
+  examples: |
+    - Tell me about your education.
+    - What is your educational background?
+    - Where did you study?
+    - Can you give me details about your education?
+    - What university did you attend?
+    - What’s your degree?
+    - What is your academic background?
+    - Where did Ronit study?
+    - Can you tell me about Ronit's education?
+
+- intent: ask_projects
+  examples: |
+    - What projects have you worked on?
+    - Tell me about your projects.
+    - Can you explain your projects?
+    - What is your favorite project?
+    - What was the last project you worked on?
+    - Which projects are you proud of?
+    - What’s your experience with project development?
+    - Can you list some projects you’ve worked on?
+    - What are some of the projects Ronit has worked on?
+    - Can you tell me about Ronit’s projects?
+
+- intent: ask_work_experience
+  examples: |
+    - What is your work experience?
+    - Can you tell me about your internships?
+    - What companies have you worked for?
+    - Tell me about your professional experience.
+    - What is your job experience?
+    - What’s Ronit’s work background?
+    - What internships has Ronit completed?
+
+- intent: ask_achievements
+  examples: |
+    - What are your achievements?
+    - Can you list your achievements?
+    - Tell me about your awards and recognitions.
+    - What accomplishments do you have?
+    - What are Ronit’s achievements?
+    - Can you list Ronit’s achievements?
+
+- intent: ask_hobbies
+  examples: |
+    - What are your hobbies?
+    - What do you do in your free time?
+    - Tell me about your hobbies.
+    - What does Ronit do for fun?
+    - What does Ronit like to do?
+    - What are Ronit’s interests?
+
+- intent: ask_contact_details
+  examples: |
+    - What is your email address?
+    - How can I contact you?
+    - What is your phone number?
+    - Can I get your contact details?
+    - How do I reach Ronit?
+    - What is Ronit’s contact information?
+    - What’s your email?
+    - Can I have Ronit’s contact details?
+
+- intent: ask_linkedin
+  examples: |
+    - What is your LinkedIn profile?
+    - Can I get your LinkedIn?
+    - What’s your LinkedIn link?
+    - How can I find Ronit on LinkedIn?
+    - Share your LinkedIn profile.
+    - What is Ronit’s LinkedIn?
+    - Can I see Ronit’s LinkedIn account?
+
+- intent: ask_location
+  examples: |
+    - Where are you based?
+    - Where do you live?
+    - What is your location?
+    - Where is Ronit from?
+    - Can you tell me where Ronit is located?
+    - Where is your home?
+
+- intent: ask_gender
+  examples: |
+    - Are you male or female?
+    - What is your gender?
+    - Are you male or female?
+    - Can you tell me your gender?
+    - What is Ronit’s gender?
+    - Is Ronit male or female?
+    - Is Ronit a boy or girl?
+    - What’s Ronit’s sex?
+    - Is Ronit gay?
+    - Is Ronit straight?
+    - What pronouns does Ronit use?

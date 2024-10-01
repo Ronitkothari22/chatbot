@@ -1,0 +1,2 @@
+cors_origins:
+  - "*"  # Allow all origins, or specify your frontend URL, e.g., "http://localhost:5173"

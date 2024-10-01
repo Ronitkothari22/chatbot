@@ -1,0 +1,122 @@
+version: "3.1"
+
+# intents:
+#   - ask_skills
+#   - ask_education
+#   - ask_projects
+#   - ask_work_experience
+#   - ask_achievements
+#   - ask_hobbies
+#   - ask_contact_details
+#   - ask_location
+#   - ask_gender
+  # - goodbye
+  # - bot_challenge
+
+# responses:
+#   utter_skills:
+#     - text: "I am proficient in C/C++, Java, Python, JavaScript, and Dart. I also have expertise in frameworks like ReactJs, Flutter, TensorFlow, and Keras."
+  
+#   utter_education:
+#     - text: "I am pursuing a B.Tech in Computer Science and Engineering at Charotar University of Science and Technology with a CGPA of 9.33."
+  
+#   utter_projects:
+#     - text: "I have worked on several projects including AttendX, Doctor Appointment App, and Farzi."
+
+#   utter_work_experience:
+#     - text: "I have completed internships at CLUMOSS as an AI/ML Intern and TopiaLife Science as a Data Science Intern."
+  
+#   utter_achievements:
+#     - text: "I secured a top 10 position at the Gateway Hackathon and won the Inter College Chess championship."
+
+#   utter_hobbies:
+#     - text: "I enjoy playing chess, watching thriller movies, playing cricket, and traveling."
+
+  # utter_goodbye:
+  #   - text: "Goodbye! If you have any more questions, feel free to ask."
+
+  # utter_iamabot:
+  #   - text: "I am a bot here to assist you with your queries."
+
+
+intents:
+  - ask_sports_skills
+  - ask_github
+  - greet
+  - thank
+  - ask_skills
+  - ask_education
+  - ask_projects
+  - ask_work_experience
+  - ask_achievements
+  - ask_hobbies
+  - ask_contact_details
+  - ask_linkedin
+  - ask_location
+  - ask_gender
+  - goodbye
+  - bot_challenge
+  - ask_how_are_you  
+responses:
+
+  utter_how_are_you:
+    - text: "I'm doing great, thanks for asking! How can I assist you today? I'd be happy to tell you about Ronit's skills, projects, or achievements."
+    - text: "I'm functioning optimally, thank you! Is there anything specific you'd like to know about Ronit? I can provide information on his education, work experience, or hobbies."
+    - text: "I'm doing well! Always excited to chat about Ronit. Would you like to hear about his technical skills, chess achievements, or perhaps his GitHub projects?"
+  utter_sports_skills:
+    - text: "Ronit is particularly skilled in chess! He's achieved some impressive results:
+    
+    • Won the Inter College Chess championship
+    • Achieved 5th Position in the Vadodara District Chess Championship
+
+    If you're into chess, you can add Ronit as a friend on chess.com and lichess. His username on Chesscom platforms is 'Donzo2211'and in Lichess in 'ronu5'. Challenge him to a game! ♟️🏆"
+
+  utter_greet:
+    - text: "Hello! It's great to meet you. I'm Ronit Kothari's virtual assistant. What would you like to know about Ronit? I can tell you about his skills, work experience, education, projects, and more. Just ask!"
+
+  utter_thank:
+    - text: "You're welcome! I'm glad I could help. If you have any more questions about Ronit, feel free to ask. I'm here to assist you!"
+  utter_github:
+    - text: "You can check out my projects and contributions on GitHub! Here's my profile: https://github.com/Ronitkothari22 💻 Feel free to explore my repositories!"
+
+  utter_skills:
+    - text: "I’ve got a pretty solid skill set! I’m proficient in C/C++, Java, Python, JavaScript, and Dart. I also work with frameworks like ReactJs, Flutter, TensorFlow, and Keras. My expertise? Machine Learning, Deep Learning, and Natural Language Processing! 🚀"
+
+  utter_education:
+    - text: "I’m currently studying for a B.Tech in Computer Science and Engineering at Charotar University of Science and Technology. So far, I’ve got a CGPA of 9.33! 📚 I also completed my higher secondary education with 86% and secondary education with 80%."
+
+  utter_projects:
+    - text: "I’ve been busy working on some cool projects! 🔧 I created AttendX, a WiFi-based attendance system using Machine Learning and React Native. I also built a Doctor Appointment app using Flutter, and a fake news detection tool called Farzi using NLP and deep learning. 💡"
+
+  utter_work_experience:
+    - text: "I’ve interned at CLUMOSS as an AI/ML Intern and TopiaLife Science as a Data Science Intern. My roles? I tackled machine learning algorithms and even developed NLP-based systems to automate resume processing. Pretty fun stuff! 😎"
+
+  utter_achievements:
+    - text: "Achievements? Well, I placed in the top 10 at the Gateway Hackathon, and I’m proud to say I won the Inter College Chess championship! ♟️ I also earned a 5-star rating in C/C++ and Java on HackerRank and placed 5th in the Vadodara District Chess Championship. 🏆"
+
+  utter_hobbies:
+    - text: "In my free time, I like to switch off and enjoy a game of chess ♟️, watch thriller movies 🎥, play some cricket 🏏, or hit the road for a bit of travel. 🌍"
+
+  utter_contact_details:
+    - text: "Feel free to reach out! You can email me at ronitkothari22@gmail.com or give me a call at +91 9313485276. I’m always happy to chat! 📧📞"
+
+  utter_linkedin:
+    - text: "Looking to connect? You can find me on LinkedIn here: https://linkedin.com/in/ronit-kothari-843987251/ 🌐 Let’s network!"
+
+  utter_location:
+    - text: "I’m based in Vadodara, Gujarat, India! 🏠 If you’re ever in the area, drop by for a coffee! ☕"
+
+  utter_gender:
+    - text: "I’m male. 😊"
+
+  
+  utter_goodbye:
+    - text: "Goodbye! If you have any more questions, feel free to ask."
+
+  utter_iamabot:
+    - text: "I am a bot here to assist you with your queries."
+ 
+
+  utter_fallback:
+    - text: "I'm not sure I understand that. Can you try rephrasing the question?"
+

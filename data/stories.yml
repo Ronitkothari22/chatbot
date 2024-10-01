@@ -1,0 +1,80 @@
+version: "3.1"
+stories:
+
+- story: greet and ask how are you
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_how_are_you
+  - action: utter_how_are_you
+
+- story: respond to sports skills query
+  steps:
+    - intent: ask_sports_skills
+    - action: utter_sports_skills
+
+- story: greet user
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- story: thank user
+  steps:
+    - intent: thank
+    - action: utter_thank
+
+- story: respond to GitHub query
+  steps:
+    - intent: ask_github
+    - action: utter_github
+
+
+- story: respond to skills query
+  steps:
+    - intent: ask_skills
+    - action: utter_skills
+
+- story: respond to education query
+  steps:
+    - intent: ask_education
+    - action: utter_education
+
+- story: respond to project query
+  steps:
+    - intent: ask_projects
+    - action: utter_projects
+
+- story: respond to work experience query
+  steps:
+    - intent: ask_work_experience
+    - action: utter_work_experience
+
+- story: respond to achievements query
+  steps:
+    - intent: ask_achievements
+    - action: utter_achievements
+
+- story: respond to hobbies query
+  steps:
+    - intent: ask_hobbies
+    - action: utter_hobbies
+
+- story: respond to contact details query
+  steps:
+    - intent: ask_contact_details
+    - action: utter_contact_details
+
+- story: respond to LinkedIn query
+  steps:
+    - intent: ask_linkedin
+    - action: utter_linkedin
+
+- story: respond to location query
+  steps:
+    - intent: ask_location
+    - action: utter_location
+
+- story: respond to gender query
+  steps:
+    - intent: ask_gender
+    - action: utter_gender
