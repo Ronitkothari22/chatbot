@@ -8,11 +8,13 @@ RUN rasa train
 # Set environment variable to silence SQLAlchemy warning
 ENV SQLALCHEMY_SILENCE_UBER_WARNING=1
 
+# Set environment variable for the port
+ENV PORT 5005
+
 USER 1001
 
 # Expose the port on which Rasa will run
-EXPOSE 5005
+EXPOSE $PORT
 
 # Start Rasa server
-ENTRYPOINT ["rasa"]
-CMD ["run", "--enable-api", "--port", "5005", "--cors", "*"]
+CMD rasa run --enable-api --port $PORT --cors "*" --debug
