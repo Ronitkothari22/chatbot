@@ -11,10 +11,13 @@ ENV SQLALCHEMY_SILENCE_UBER_WARNING=1
 # Set environment variable for the port
 ENV PORT 5005
 
+# Make sure the start script is executable
+RUN chmod +x start.sh
+
 USER 1001
 
 # Expose the port on which Rasa will run
 EXPOSE $PORT
 
-# Start Rasa server
-CMD ["rasa", "run", "--enable-api", "--port", "$PORT", "--cors", "*", "--debug"]
+# Start Rasa server using the shell script
+CMD ["/bin/bash", "start.sh"]
