@@ -6,4 +6,9 @@ COPY . /app
 RUN rasa train
 
 USER 1001
-CMD ["rasa", "run", "--enable-api", "--port", "$PORT"]
+
+# Expose the port on which Rasa will run
+EXPOSE 5005
+
+# Start Rasa server
+CMD ["rasa", "run", "--enable-api", "--port", "5005", "--cors", "*"]
