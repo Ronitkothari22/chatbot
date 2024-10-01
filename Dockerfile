@@ -17,4 +17,4 @@ USER 1001
 EXPOSE $PORT
 
 # Start Rasa server
-CMD rasa run --enable-api --port $PORT --cors "*" --debug
+CMD ["rasa", "run", "--enable-api", "--port", "$PORT", "--cors", "*", "--debug"]
