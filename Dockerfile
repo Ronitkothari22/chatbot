@@ -18,15 +18,14 @@
 
 # # Start Rasa server
 # CMD ["rasa", "run", "--enable-api", "--cors", "*", "--port", "$PORT"]
-
-
 FROM rasa/rasa:latest-full
 
 WORKDIR /app
+
+# Copy all files from the current directory to /app in the container
 COPY . /app
 
-# Copy the start script
-COPY start-rasa.sh /app/start-rasa.sh
+# Make sure the start script is executable
 RUN chmod +x /app/start-rasa.sh
 
 # Set environment variable for the port
