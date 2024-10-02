@@ -20,17 +20,20 @@
 # CMD ["rasa", "run", "--enable-api", "--cors", "*", "--port", "$PORT"]
 
 
-
 FROM rasa/rasa:latest-full
 
 WORKDIR /app
 COPY . /app
 
+# Copy the start script
+COPY start-rasa.sh /app/start-rasa.sh
+RUN chmod +x /app/start-rasa.sh
+
 # Set environment variable for the port
-ENV PORT 5005
+ENV PORT 10000
 
 # Expose the port on which Rasa will run
 EXPOSE $PORT
 
-# Start Rasa server
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--port", "5005"]
+# Start Rasa server using the script
+CMD ["/app/start.sh"]
