@@ -19,7 +19,6 @@
 # # Start Rasa server
 # CMD ["rasa", "run", "--enable-api", "--cors", "*", "--port", "$PORT"]
 
-# Use Rasa 3.6.20 instead of 3.6.2
 # Use Rasa 3.6.20
 FROM rasa/rasa:3.6.20-full
 
@@ -31,14 +30,21 @@ RUN rasa train
 # Set environment variable to silence SQLAlchemy warning
 ENV SQLALCHEMY_SILENCE_UBER_WARNING=1
 
+# Create an entrypoint script
+RUN echo '#!/bin/bash\n\
+if [ "$1" = "/bin/bash" ]; then\n\
+    exec rasa run --enable-api --cors "*" --port $PORT\n\
+else\n\
+    exec "$@"\n\
+fi' > /entrypoint.sh && chmod +x /entrypoint.sh
+
 USER 1001
 
 # Expose the port on which Rasa will run
 EXPOSE 10000
 
-# Set the entrypoint to "rasa"
-ENTRYPOINT ["rasa"]
+# Use the entrypoint script
+ENTRYPOINT ["/entrypoint.sh"]
 
-# Use shell form of CMD to allow environment variable substitution
-# The $PORT variable is provided by Render
-CMD run --enable-api --cors "*" --port $PORT
+# Default command (will be overridden by Render, but included for completeness)
+CMD ["rasa", "run", "--enable-api", "--cors", "*", "--port", "$PORT"]
