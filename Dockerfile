@@ -70,16 +70,19 @@ ENV SQLALCHEMY_SILENCE_UBER_WARNING=1
 # Create an entrypoint script
 RUN echo '#!/bin/bash' > /entrypoint.sh && \
     echo 'if [ "$1" = "/bin/bash" ]; then' >> /entrypoint.sh && \
-    echo '    PORT="${PORT:-$PORT}"' >> /entrypoint.sh && \
-    echo '    exec rasa run --enable-api --cors "*" --port "$PORT"' >> /entrypoint.sh && \
+    echo '    PORT="${PORT:-5005}"' >> /entrypoint.sh && \
+    echo '    exec rasa run --enable-api --cors "*"' >> /entrypoint.sh && \
     echo 'else' >> /entrypoint.sh && \
     echo '    exec "$@"' >> /entrypoint.sh && \
+    echo 'fi' >> /entrypoint.sh && \
     chmod +x /entrypoint.sh
 
 USER 1001
-# Expose the port (let Render manage this)
-EXPOSE 5000-5200  
+# Expose a port range (Render will decide which port to use)
+EXPOSE 5000-5200
+
 # Use the entrypoint script
 ENTRYPOINT ["/entrypoint.sh"]
-# Default command (Render will likely override it, but include for fallback)
+
+# Default command (Render will override this, but include it for fallback)
 CMD ["rasa", "run", "--enable-api", "--cors", "*"]
