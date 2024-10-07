@@ -18,7 +18,6 @@
 
 # # Start Rasa server
 # CMD ["rasa", "run", "--enable-api", "--cors", "*", "--port", "$PORT"]
-
 # Use Rasa 3.6.20
 FROM rasa/rasa:3.6.20-full
 
@@ -31,12 +30,13 @@ RUN rasa train
 ENV SQLALCHEMY_SILENCE_UBER_WARNING=1
 
 # Create an entrypoint script
-RUN echo '#!/bin/bash\n\
-if [ "$1" = "/bin/bash" ]; then\n\
-    exec rasa run --enable-api --cors "*" --port $PORT\n\
-else\n\
-    exec "$@"\n\
-fi' > /entrypoint.sh && chmod +x /entrypoint.sh
+RUN echo '#!/bin/bash' > /entrypoint.sh && \
+    echo 'if [ "$1" = "/bin/bash" ]; then' >> /entrypoint.sh && \
+    echo '    exec rasa run --enable-api --cors "*" --port $PORT' >> /entrypoint.sh && \
+    echo 'else' >> /entrypoint.sh && \
+    echo '    exec "$@"' >> /entrypoint.sh && \
+    echo 'fi' >> /entrypoint.sh && \
+    chmod +x /entrypoint.sh
 
 USER 1001
 
