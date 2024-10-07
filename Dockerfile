@@ -69,23 +69,17 @@ ENV SQLALCHEMY_SILENCE_UBER_WARNING=1
 
 # Create an entrypoint script
 RUN echo '#!/bin/bash' > /entrypoint.sh && \
-    # Check if we are in the bash shell
     echo 'if [ "$1" = "/bin/bash" ]; then' >> /entrypoint.sh && \
-    # Render will pass the port as an environment variable, so no need to specify it here
-    echo '    exec rasa run --enable-api --cors "*"' >> /entrypoint.sh && \
+    echo '    PORT="${PORT:-$PORT}"' >> /entrypoint.sh && \
+    echo '    exec rasa run --enable-api --cors "*" --port "$PORT"' >> /entrypoint.sh && \
     echo 'else' >> /entrypoint.sh && \
-    # If we are not in bash, just run the provided command
     echo '    exec "$@"' >> /entrypoint.sh && \
-    echo 'fi' >> /entrypoint.sh && \
     chmod +x /entrypoint.sh
 
 USER 1001
-
-# Expose the port that Render will use via its environment variable (handled by Render)
-EXPOSE $PORT
-
+# Expose the port (let Render manage this)
+EXPOSE 5000-5200  
 # Use the entrypoint script
 ENTRYPOINT ["/entrypoint.sh"]
-
-# Default command (can be overridden by Render)
+# Default command (Render will likely override it, but include for fallback)
 CMD ["rasa", "run", "--enable-api", "--cors", "*"]
