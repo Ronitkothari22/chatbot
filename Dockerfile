@@ -87,10 +87,42 @@
 # # Default command (Render will override this, but include it for fallback)
 # CMD ["rasa", "run", "--enable-api", "--cors", "*"]
 
+# FROM rasa/rasa:3.6.20-full
+# USER root
+# WORKDIR /app
+# COPY . /app
+# RUN rasa train
+
+# # Set environment variable to silence SQLAlchemy warning
+# ENV SQLALCHEMY_SILENCE_UBER_WARNING=1
+
+# # Create an entrypoint script
+# RUN echo '#!/bin/bash' > /entrypoint.sh && \
+#     echo 'if [ "$1" = "/bin/bash" ]; then' >> /entrypoint.sh && \
+#     echo '    exec rasa run --enable-api --cors "*"' >> /entrypoint.sh && \
+#     echo 'else' >> /entrypoint.sh && \
+#     echo '    exec "$@"' >> /entrypoint.sh && \
+#     echo 'fi' >> /entrypoint.sh && \
+#     chmod +x /entrypoint.sh
+
+# USER 1001
+# # Expose a default port range, but let Render decide
+# EXPOSE 10000-10050
+
+# # Use the entrypoint script
+# ENTRYPOINT ["/entrypoint.sh"]
+
+# # Default command (Render will override this, but include it for fallback)
+# CMD ["rasa", "run", "--enable-api", "--cors", "*"]
+
+
+
 FROM rasa/rasa:3.6.20-full
 USER root
 WORKDIR /app
 COPY . /app
+
+# Train the model
 RUN rasa train
 
 # Set environment variable to silence SQLAlchemy warning
@@ -99,7 +131,7 @@ ENV SQLALCHEMY_SILENCE_UBER_WARNING=1
 # Create an entrypoint script
 RUN echo '#!/bin/bash' > /entrypoint.sh && \
     echo 'if [ "$1" = "/bin/bash" ]; then' >> /entrypoint.sh && \
-    echo '    exec rasa run --enable-api --cors "*"' >> /entrypoint.sh && \
+    echo '    exec rasa run --enable-api --cors "*" --workers 2 --memory-limit 256' >> /entrypoint.sh && \
     echo 'else' >> /entrypoint.sh && \
     echo '    exec "$@"' >> /entrypoint.sh && \
     echo 'fi' >> /entrypoint.sh && \
@@ -113,4 +145,4 @@ EXPOSE 10000-10050
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Default command (Render will override this, but include it for fallback)
-CMD ["rasa", "run", "--enable-api", "--cors", "*"]
+CMD ["rasa", "run", "--enable-api", "--cors", "*", "--workers", "2", "--memory-limit", "256"]
